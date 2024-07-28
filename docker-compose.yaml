@@ -1,0 +1,17 @@
+version: '3.1'
+services:
+  postgres:
+    container_name: ${DB_HOST}
+    restart: unless-stopped
+    image: onjin/alpine-postgres:13.0
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    volumes:
+      - postgre_sql_data:/var/lib/mysql
+
+volumes:
+  postgre_sql_data:
