@@ -10,6 +10,12 @@ export default class Product {
 	public id: number;
 
 	@Column({
+		type: "varchar",
+		length: 50
+	})
+	public name: string;
+
+	@Column({
 		type: "int"
 	})
 	public stock: number;
