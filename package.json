@@ -9,7 +9,7 @@
     "start:dist": "node dist/index.js",
     "build": "tsc",
     "eslint": "eslint --fix .",
-    "mgr:create": "typeorm migration:create src/migrations/%npm_config_name% -- -d",
+    "mgr:create": "typeorm migration:create src/shared/infrastructure/persistence/migrations/%npm_config_name% -- -d",
     "mgr:run": "ts-node ./node_modules/typeorm/cli.js migration:run --dataSource=./src/shared/infrastructure/persistence/migration.config.ts"
   },
   "keywords": [],
