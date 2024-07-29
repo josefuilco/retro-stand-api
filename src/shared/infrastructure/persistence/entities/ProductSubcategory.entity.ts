@@ -1,5 +1,5 @@
-import { Entity, PrimaryColumn, Column, OneToOne, JoinColumn } from "typeorm";
-import ProductCategory from "./ProductCategory";
+import { Entity, PrimaryColumn, Column, JoinColumn, ManyToOne } from "typeorm";
+import ProductCategory from "./ProductCategory.entity";
 
 @Entity()
 export default class ProductSubcategory {
@@ -15,7 +15,6 @@ export default class ProductSubcategory {
 	public name: string;
 
 	@Column({
-		name: "unit_price",
 		type: "decimal",
 		precision: 4,
 		scale: 2
@@ -23,17 +22,16 @@ export default class ProductSubcategory {
 	public unitPrice: number;
 
 	@Column({
-		name: "active",
 		type: "boolean",
 		default: true
 	})
-	public isActive: boolean;
+	public active: boolean;
 
-	@OneToOne(() => ProductCategory)
+	@ManyToOne(() => ProductCategory, (category) => category)
 	@JoinColumn({
 		name: "product_category_id",
-		foreignKeyConstraintName: "fk_product_category_id",
 		referencedColumnName: "id"
 	})
 	public category: ProductCategory;
 }
+// UNIQUE

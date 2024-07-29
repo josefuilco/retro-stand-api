@@ -4,12 +4,18 @@ API para el registro de ventas de productos retro piratas como películas en DVD
 
 ## Commands
 
-* Habilita PostgreSQL.
+* Habilitar PostgreSQL con Docker.
 ```powershell
 docker compose up -d
 ```
 
-* Ejecuta el backend.
+* Ejecutar el backend.
 ```powershell
 npm start
+```
+
+* Crear una migración.
+```powershell
+npm run mgr:create --name=<migration-name>
+#npm run mgr:create --name=InsertCategoriesAndSubcategories
 ```

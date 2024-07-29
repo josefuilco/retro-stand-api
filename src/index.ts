@@ -1,19 +1,22 @@
 import "reflect-metadata";
+
+process.loadEnvFile(".env");
+
 import express from "express";
-import PostgreSQLDataSource from "./data-source/data-source";
-import ProductCategory from "./models/products/ProductCategory";
-import ProductSubcategory from "./models/products/ProductSubcategory";
+import PostgreSQLDataSource from "./shared/infrastructure/persistence/typeorm.config";
+import ProductCategory from "./shared/infrastructure/persistence/entities/ProductCategory.entity";
+import ProductSubcategory from "./shared/infrastructure/persistence/entities/ProductSubcategory.entity";
 
 PostgreSQLDataSource.initialize()
-	.then(console.info)
+	.then(() => console.info("Database connected!"))
 	.catch(console.error);
 
 const app = express();
 
-app.get("/hello-world/:name", async (req, res) => {
-	const categoryList = await PostgreSQLDataSource.manager.find(ProductCategory);
-	const subcategoryList = await PostgreSQLDataSource.manager.find(ProductSubcategory);
-	res.json({ categoryList, subcategoryList });
+app.get("/hello-world", async (_, res) => {
+	const categories = await PostgreSQLDataSource.manager.find(ProductCategory);
+	const subcategories = await PostgreSQLDataSource.manager.find(ProductSubcategory);
+	res.json({ categories, subcategories });
 });
 
 const port = process.env.PORT;

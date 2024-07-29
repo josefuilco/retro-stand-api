@@ -14,9 +14,8 @@ export default class ProductCategory {
 	public name: string;
 
 	@Column({
-		name: "active",
 		type: "boolean",
 		default: true
 	})
-	public isActive: boolean;
+	public active: boolean;
 }

@@ -21,6 +21,7 @@ export default class Cashier {
 
 	@Column({
 		type: "varchar",
+		unique: true,
 		length: 8
 	})
 	public dni: string;
