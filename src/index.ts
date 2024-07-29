@@ -1,9 +1,19 @@
+import "reflect-metadata";
 import express from "express";
+import PostgreSQLDataSource from "./data-source/data-source";
+import ProductCategory from "./models/products/ProductCategory";
+import ProductSubcategory from "./models/products/ProductSubcategory";
+
+PostgreSQLDataSource.initialize()
+	.then(console.info)
+	.catch(console.error);
 
 const app = express();
 
-app.get("/hello-world/:name", (req, res) => {
-	res.send(`<h1>${req.params.name}</h1>`);
+app.get("/hello-world/:name", async (req, res) => {
+	const categoryList = await PostgreSQLDataSource.manager.find(ProductCategory);
+	const subcategoryList = await PostgreSQLDataSource.manager.find(ProductSubcategory);
+	res.json({ categoryList, subcategoryList });
 });
 
 const port = process.env.PORT;

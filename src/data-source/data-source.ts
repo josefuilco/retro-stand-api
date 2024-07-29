@@ -1,6 +1,13 @@
 import { DataSource } from "typeorm";
+import Cashier from "../models/cashier/Cashier";
+import Product from "../models/products/Product";
+import ProductCategory from "../models/products/ProductCategory";
+import ProductSubcategory from "../models/products/ProductSubcategory";
+import Sale from "../models/sale/Sale";
+import SaleProductItem from "../models/sale/SaleProductItem";
+import { PostRefactoring1722212457022 } from "../migrations/1722212457022-PostRefactoring";
 
-const isDevelopment = true;
+const isDevelopment = false;
 
 const PostgreSQLDataSource = new DataSource({
 	type: "postgres",
@@ -11,9 +18,9 @@ const PostgreSQLDataSource = new DataSource({
 	database: process.env.DB_NAME,
 	synchronize: isDevelopment,
 	logging: true,
-	entities: [],
+	entities: [Cashier, Product, ProductCategory, ProductSubcategory, Sale, SaleProductItem],
 	subscribers: [],
-	migrations: [],
+	migrations: [PostRefactoring1722212457022],
 });
 
 export default PostgreSQLDataSource;

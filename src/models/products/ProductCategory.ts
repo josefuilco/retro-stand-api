@@ -3,7 +3,7 @@ import { Entity, Column, PrimaryColumn } from "typeorm";
 @Entity()
 export default class ProductCategory {
 	@PrimaryColumn({
-		type: "tinyint"
+		type: "smallint"
 	})
 	public id: number;
 
@@ -14,14 +14,9 @@ export default class ProductCategory {
 	public name: string;
 
 	@Column({
-		type: "decimal",
-		precision: 4,
-		scale: 2
+		name: "active",
+		type: "boolean",
+		default: true
 	})
-	public unit_price: number;
-
-	@Column({
-		type: "bit"
-	})
-	public is_active: boolean = true;
+	public isActive: boolean;
 }
