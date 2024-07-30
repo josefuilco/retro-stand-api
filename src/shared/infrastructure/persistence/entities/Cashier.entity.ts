@@ -25,4 +25,10 @@ export default class Cashier {
 		length: 8
 	})
 	public dni: string;
+
+	@Column({
+		type: "varchar",
+		length: 60
+	})
+	public password: string;
 }
