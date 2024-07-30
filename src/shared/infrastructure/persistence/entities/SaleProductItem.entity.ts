@@ -10,17 +10,17 @@ export default class SaleProductItem {
 	@Column()
 	public quantity: number;
 
-	@ManyToOne(() => Sale, (sale) => sale.products)
-	@JoinColumn({
-		name: "sale_id",
-		referencedColumnName: "id"
-	})
-	public sale: Sale;
-
-	@ManyToOne(() => Product)
+	@ManyToOne(() => Product, { eager: true })
 	@JoinColumn({
 		name: "product_id",
 		referencedColumnName: "id"
 	})
 	public product: Product;
+
+	@ManyToOne(() => Sale, (sale) => sale.items)
+	@JoinColumn({
+		name: "sale_id",
+		referencedColumnName: "id"
+	})
+	public sale: Sale;
 }

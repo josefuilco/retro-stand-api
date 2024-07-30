@@ -1,5 +1,4 @@
 import { Entity, Column, PrimaryColumn, ManyToOne, JoinColumn } from "typeorm";
-import ProductCategory from "./ProductCategory.entity";
 import ProductSubcategory from "./ProductSubcategory.entity";
 
 @Entity()
@@ -21,18 +20,12 @@ export default class Product {
 	public stock: number;
 
 	@Column({
-		type: "bit"
+		type: "boolean",
+		default: true
 	})
 	public active: boolean;
 
-	@ManyToOne(() => ProductCategory, (subcategory) => subcategory)
-	@JoinColumn({
-		name: "product_category_id",
-		referencedColumnName: "id"
-	})
-	public category: ProductCategory;
-
-	@ManyToOne(() => ProductSubcategory, (subcategory) => subcategory)
+	@ManyToOne(() => ProductSubcategory, (subcategory) => subcategory, { eager: true })
 	@JoinColumn({
 		name: "product_subcategory_id",
 		referencedColumnName: "id"

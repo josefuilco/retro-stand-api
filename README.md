@@ -16,22 +16,33 @@ API para el registro de ventas de productos retro piratas como películas en DVD
 
 ## Comandos
 
-* Habilitar PostgreSQL con Docker.
+### Ejecutar aplicación
+
+* **Paso 1:** Habilitar PostgreSQL con Docker.
 ```powershell
 docker compose up -d
 ```
 
-* Ejecutar el backend.
+* **Paso 2:** Ejecutar el backend.
 ```powershell
 npm start
 ```
 
-* Crear una migración.
-```powershell
-npm run mgr:create --name=<migration-name>
-```
-
-* Ejecutar migraciones.
+* **Paso 3:** Ejecutar migraciones. (Solo la primera vez)
 ```powershell
 npm run mgr:run
 ```
+
+### Adicionales
+
+* Crear una migración.
+```powershell
+npm run mgr:create --name="<migration-name>""
+```
+
+
+## Diagrama de la base de datos
+
+Diagrama realizado con **draw.io.**
+
+![Descripción de la imagen](/retro_stand_db.jpg "Leyenda de la imagen")
