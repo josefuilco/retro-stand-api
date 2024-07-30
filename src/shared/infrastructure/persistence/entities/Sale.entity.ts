@@ -1,4 +1,4 @@
-import { Entity, PrimaryColumn, Column, ManyToOne, OneToMany } from "typeorm";
+import { Entity, PrimaryColumn, ManyToOne, OneToMany, CreateDateColumn } from "typeorm";
 import SaleProductItem from "./SaleProductItem.entity";
 import Cashier from "./Cashier.entity";
 
@@ -10,14 +10,12 @@ export default class Sale {
 	})
 	public id: string;
 
-	@Column({
-		type: "date"
-	})
+	@CreateDateColumn()
 	public recordDate: Date;
 
-	@OneToMany(() => SaleProductItem, (saleProductItem) => saleProductItem.sale)
-	public products: SaleProductItem[];
+	@OneToMany(() => SaleProductItem, (item) => item.sale, { eager: true })
+	public items: SaleProductItem[];
 
-	@ManyToOne(() => Cashier, (cashier) => cashier)
+	@ManyToOne(() => Cashier, (cashier) => cashier, { eager: true })
 	public cashier: Cashier;
 }

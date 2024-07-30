@@ -27,7 +27,7 @@ export default class ProductSubcategory {
 	})
 	public active: boolean;
 
-	@ManyToOne(() => ProductCategory, (category) => category)
+	@ManyToOne(() => ProductCategory, (category) => category, { eager: true })
 	@JoinColumn({
 		name: "product_category_id",
 		referencedColumnName: "id"

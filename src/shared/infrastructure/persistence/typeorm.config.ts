@@ -2,9 +2,6 @@ import { DataSource } from "typeorm";
 import SnakeCaseStrategy from "./SnakeCaseStrategy";
 
 const isDevelopment = process.env.NODE_ENV === "development";
-function getPersistencePath(path: string): string {
-	return `src/shared/infrastructure/persistence${path}`;
-}
 const PostgreSQLDataSource = new DataSource({
 	type: "postgres",
 	host: process.env.DB_HOST,
@@ -15,8 +12,8 @@ const PostgreSQLDataSource = new DataSource({
 	synchronize: isDevelopment,
 	logging: isDevelopment,
 	namingStrategy: new SnakeCaseStrategy(),
-	entities: [getPersistencePath("/entities/**/**.entity.ts")],
-	migrations: [getPersistencePath("/migrations/**/*.ts")],
+	entities: ["src/shared/infrastructure/persistence/entities/**/**.entity.ts"],
+	migrations: ["src/migrations/**/*.ts"]
 });
 
 export default PostgreSQLDataSource;
