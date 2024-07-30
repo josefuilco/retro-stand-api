@@ -8,13 +8,17 @@ export class Cashiers1722278685381 implements MigrationInterface {
 				id: 1,
 				firstName: "Ausubel",
 				lastName: "Velasquez",
-				dni: "85900893"
+				dni: "85900893",
+				//password = avelasquez123
+				password: "$2a$12$i2jw.eJl9h665fC51kV2y.t401Mayf7L28ORKTplaqKNUW3b03x2e"
 			},
 			{
 				id: 2,
 				firstName: "Jose",
 				lastName: "Casma",
-				dni: "75958521"
+				dni: "75958521",
+				//password = jcasma123
+				password: "$2a$12$x19kmL3KjHxARoh/R75JD.YnICVOTSTMPHXgsz8H1FffAz6Kp4s7W"
 			}
 		]);
 	}
