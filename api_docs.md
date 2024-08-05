@@ -54,7 +54,6 @@ Obtiene el listado de productos para el inventario.
 				"id": 1,
 				"name": "Crash Bandicoot",
 				"stock": 17,
-				"active": true,
 				"category": {
 					"id": 2,
 					"name": "Videojuego"
@@ -159,8 +158,7 @@ Actualiza un producto.
 ```json
 {
 	"name": "Crash Bandicoot",
-	"categoryId": 2,
-	"sucategoryId": 3
+	"subcategoryId": 3
 }
 ```
 * Response

@@ -5,17 +5,17 @@ export default class ProductCategory {
 	@PrimaryColumn({
 		type: "smallint"
 	})
-	public id: number;
+	public id!: number;
 
 	@Column({
 		type: "varchar",
 		length: 30
 	})
-	public name: string;
+	public name!: string;
 
 	@Column({
 		type: "boolean",
 		default: true
 	})
-	public active: boolean;
+	public active!: boolean;
 }
