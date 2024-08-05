@@ -5,30 +5,30 @@ export default class Cashier {
 	@PrimaryColumn({
 		type: "smallint"
 	})
-	public id: number;
+	public id!: number;
 	
 	@Column({
 		type: "varchar",
 		length: 100
 	})
-	public firstName: string;
+	public firstName!: string;
 	
 	@Column({
 		type: "varchar",
 		length: 100
 	})
-	public lastName: string;
+	public lastName!: string;
 
 	@Column({
 		type: "varchar",
 		unique: true,
 		length: 8
 	})
-	public dni: string;
+	public dni!: string;
 
 	@Column({
 		type: "varchar",
 		length: 60
 	})
-	public password: string;
+	public password!: string;
 }

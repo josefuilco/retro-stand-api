@@ -6,32 +6,31 @@ export default class ProductSubcategory {
 	@PrimaryColumn({
 		type: "smallint"
 	})
-	public id: number;
+	public id!: number;
 
 	@Column({
 		type: "varchar",
 		length: 30
 	})
-	public name: string;
+	public name!: string;
 
 	@Column({
 		type: "decimal",
 		precision: 4,
 		scale: 2
 	})
-	public unitPrice: number;
+	public unitPrice!: number;
 
 	@Column({
 		type: "boolean",
 		default: true
 	})
-	public active: boolean;
+	public active!: boolean;
 
 	@ManyToOne(() => ProductCategory, (category) => category, { eager: true })
 	@JoinColumn({
 		name: "product_category_id",
 		referencedColumnName: "id"
 	})
-	public category: ProductCategory;
+	public category!: ProductCategory;
 }
-// UNIQUE

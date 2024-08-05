@@ -46,3 +46,9 @@ npm run mgr:create --name="<migration-name>""
 Diagrama realizado con **draw.io.**
 
 ![Descripción de la imagen](/retro_stand_db.jpg "Leyenda de la imagen")
+
+## Arquitectura
+
+´´´txt
+api -> use_case -> repository -> persistence
+´´´

@@ -6,29 +6,29 @@ export default class Product {
 	@PrimaryColumn({
 		type: "int"
 	})
-	public id: number;
+	public id!: number;
 
 	@Column({
 		type: "varchar",
 		length: 50
 	})
-	public name: string;
+	public name!: string;
 
 	@Column({
 		type: "int"
 	})
-	public stock: number;
+	public stock!: number;
 
 	@Column({
 		type: "boolean",
 		default: true
 	})
-	public active: boolean;
+	public active!: boolean;
 
 	@ManyToOne(() => ProductSubcategory, (subcategory) => subcategory, { eager: true })
 	@JoinColumn({
 		name: "product_subcategory_id",
 		referencedColumnName: "id"
 	})
-	public subcategory: ProductSubcategory;
+	public subcategory!: ProductSubcategory;
 }

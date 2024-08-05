@@ -16,4 +16,10 @@ const PostgreSQLDataSource = new DataSource({
 	migrations: ["src/migrations/**/*.ts"]
 });
 
+export function initPostgreSQLDataSource() {
+	PostgreSQLDataSource.initialize()
+		.then(() => console.info("Database connected!"))
+		.catch(console.error);
+}
+
 export default PostgreSQLDataSource;

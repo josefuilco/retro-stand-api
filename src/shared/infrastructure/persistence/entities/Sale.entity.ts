@@ -8,14 +8,14 @@ export default class Sale {
 		type: "varchar",
 		length: 36
 	})
-	public id: string;
+	public id!: string;
 
 	@CreateDateColumn()
-	public recordDate: Date;
+	public recordDate!: Date;
 
 	@OneToMany(() => SaleProductItem, (item) => item.sale, { eager: true })
-	public items: SaleProductItem[];
+	public items!: SaleProductItem[];
 
 	@ManyToOne(() => Cashier, (cashier) => cashier, { eager: true })
-	public cashier: Cashier;
+	public cashier!: Cashier;
 }
